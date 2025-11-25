@@ -1,5 +1,6 @@
 const { Client } = require("whatsapp-web.js");
 const qrcode = require("qrcode-terminal");
+const express = require("express"); // PENTING: harus ditambahkan
 
 // Konfigurasi
 const allowed_admin_keywords = ["Admin", "RASYID SMB TALPO DC"]; // Nama admin (case-insensitive)
@@ -87,3 +88,4 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 app.get("/", (req, res) => res.send("Bot aktif!"));
 app.listen(PORT, () => console.log(`Server berjalan di port ${PORT}`));
+
