@@ -1,13 +1,6 @@
 const { Client } = require("whatsapp-web.js");
 const qrcode = require("qrcode-terminal");
 
-const express = require("express");
-const app = express();
-const PORT = process.env.PORT || 3000;
-
-app.get("/", (req, res) => res.send("Bot aktif!"));
-app.listen(PORT, () => console.log(`Server berjalan di port ${PORT}`));
-
 // Konfigurasi
 const allowed_admin_keywords = ["Admin", "RASYID SMB TALPO DC"]; // Nama admin (case-insensitive)
 const allowed_group_names = ["DW SMB GEN 7 (TALPO)"]; // Nama grup yang diinginkan (case-insensitive, tambah lebih banyak jika perlu)
@@ -89,3 +82,8 @@ client.on("message", async (msg) => {
 // Inisialisasi bot
 client.initialize();
 
+// Express server untuk Railway ping
+const app = express();
+const PORT = process.env.PORT || 3000;
+app.get("/", (req, res) => res.send("Bot aktif!"));
+app.listen(PORT, () => console.log(`Server berjalan di port ${PORT}`));
